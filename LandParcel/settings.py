@@ -27,9 +27,12 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'django-insecure-s*!svva$u^gr2x(3qh7#q5&5*(mu!klezm8=yqoux)u%54l)n('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
+
+# Add these for Railway
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 
 # Application definition
