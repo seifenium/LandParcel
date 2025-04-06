@@ -1,8 +1,0 @@
-Django>=3.2
-psycopg2-binary  # If you're using PostgreSQL
-django.contrib.gis
-numpy
-gdal>=3.6
-pyproj>=3.0
-shapely  # For geometric operations
-geojson  # For working with GeoJSON data
