@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.gis.db import models as gis_models
+#from django.contrib.gis.db import models as gis_models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
 
@@ -12,7 +12,7 @@ class LandParcel(models.Model):
     description = models.TextField(verbose_name="Description")
     
     # Location information
-    location = gis_models.PointField(verbose_name="Geographic Location")
+    #location = gis_models.PointField(verbose_name="Geographic Location")
     address = models.TextField(verbose_name="Physical Address")
     region = models.CharField(max_length=100, verbose_name="Region/State")
     city = models.CharField(max_length=100, verbose_name="City/Town")
@@ -274,7 +274,7 @@ class DocumentAttachment(models.Model):
     # Generic foreign key approach to link to different models
     content_type = models.ForeignKey('contenttypes.ContentType', on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
-    content_object = models.GenericForeignKey('content_type', 'object_id')
+    #content_object = models.GenericForeignKey('content_type', 'object_id')
     
     class Meta:
         verbose_name = "Document Attachment"

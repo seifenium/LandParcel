@@ -24,9 +24,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY') # Set this in your Railway environment
-
-
+SECRET_KEY = 'django-insecure-s*!svva$u^gr2x(3qh7#q5&5*(mu!klezm8=yqoux)u%54l)n('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -85,12 +83,12 @@ WSGI_APPLICATION = 'LandParcel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'land_db',
         'USER': 'seife',
         'PASSWORD': '$eifeDan2018',
-        'HOST': 'containers-us-west-101.railway.app',  # Railway host
-        'PORT': '5432',
+        'HOST': 'host.docker.internal',  # Critical for Mac
+        'PORT': '5434',
     }
 }
 
@@ -130,9 +128,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [STATIC_DIR,] # Add the static directory to the STATICFILES_DIRS list
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For `collectstatic`
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
