@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY') # Set this in your Railway environment
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] 
 
 # Add these for Railway
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
