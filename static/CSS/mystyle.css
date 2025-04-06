@@ -1,0 +1,30 @@
+h1 {
+    color: #1e40af;               /* Deep, rich blue for elegance */
+    font-weight: 600;             /* Semi-bold (not too heavy) */
+    font-size: 2.8rem;            /* Commanding but not oversized */
+    line-height: 1.3;             /* Optimal readability */
+    letter-spacing: -0.025em;     /* Slightly tighter for refinement */
+    margin: 0.75rem 0 1.25rem;    /* Balanced vertical spacing */
+    text-align: center;           /* Centered elegance */
+    position: relative;           /* For pseudo-element accents */
+    display: inline-block;        /* Ensures underline fits content */
+  }
+  
+  /* Subtle underline accent (optional) */
+  h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;                /* Position below text */
+    left: 50%;                    /* Center the line */
+    transform: translateX(-50%);   /* Perfect centering */
+    width: 50%;                   /* Half the width of the text */
+    height: 2px;                  /* Thin, delicate line */
+    background: rgba(30, 64, 175, 0.3); /* Semi-transparent blue */
+    border-radius: 2px;
+  }
+  
+  /* Hover effect (optional) */
+  h1:hover {
+    color: #1e3a8a;               /* Darker shade on hover */
+    transition: color 0.3s ease;  /* Smooth transition */
+  }

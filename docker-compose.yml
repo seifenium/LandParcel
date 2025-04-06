@@ -1,0 +1,31 @@
+
+services:
+  gdal:
+    image: osgeo/gdal:ubuntu-small-3.6.2
+    container_name: gdal-container
+    volumes:
+      - ./data:/data  # Mount a local folder to the container
+    command: ["gdalinfo", "--version"]  # Example GDAL command
+    healthcheck:
+      test: ["CMD", "gdalinfo", "--version"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  django:
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    container_name: django-container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./django:/app
+    depends_on:
+      gdal:
+        condition: service_healthy  # Wait for GDAL to be healthy
+    environment:
+      DJANGO_SETTINGS_MODULE: "LandParcel.settings"
+      PYTHONUNBUFFERED: "1"
+      GDAL_LIBRARY_PATH: "/usr/lib/libgdal.so"
+      LD_LIBRARY_PATH: "/usr/lib"
